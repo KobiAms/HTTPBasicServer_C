@@ -1,0 +1,25 @@
+README
+Http server side
+
+===Description ===
+
+Program files:
+server.c - implementation file for server side in http connection.
+threadpool.c - implementation file for threadpool for using server program for multi threads request hendling.
+
+
+Documentation:
+
+	after compiling the program, user will send data as arguments to program when executing.
+	function MUST gets a 3 arguments: number of port, num of threads to hold in threadpool (max size is 200), num of request to handling.
+	Usage: server <port> <pool-size> <max-number-of-request>
+	
+    server responses:
+        200 OK - can be a file or directory content
+        302 Found - the file/directory found but not end with '/'
+        400 Bad request - the request is not in standart (GET / HTTP/1.1)
+        403 Forbidden - client not have the permission required to this path
+        404 Not found - path is invalid
+        500 Internal Server Error - returns when the server have a syscall failure
+        501 Not Supported - server support ONLY 'GET' method
+
